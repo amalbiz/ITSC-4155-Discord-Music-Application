@@ -1,7 +1,7 @@
 # DiscordMusicBot
 This is a private repository to host the Team 15 Project. Our documentation (Design Document) can also be found here.
 
-## Directions on how to start the website locally (Online it is here: https://bot.shiftsmart.me/ )
+## Directions on how to start the website locally (Online it is here: (not hosted anymore) )
 1. Navigate to the website directory inside the DiscordMusicBot folder
 1. Install node from here: https://nodejs.org/en/download
 2. Install express here: https://expressjs.com/en/starter/installing.html (or do 'npm install express' in the terminal)
