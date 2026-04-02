@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Discord Bot</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <!--Insert logo png here if we decide to-->
+        </div>
+        <ul class="nav-links">
+          <!--navigation placeholders for now.-->
+          <li><a href="/">Home</a></li>
+          <li><a href="/documentation">Documentation</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+
+        </ul>
+        <a href="/invite" class="button">Invite Poly!</a>
+      </nav>
+      <!--Left side of screen header-->
+      <div class="header-info">
+        <h1>Poly. Your new Discord Bot</h1>
+        <p>
+          Poly is a multi-functional Discord bot that has been designed to enhance your discord servers and communities.
+          
+        </p>
+        <!--Button to have users login with their discord account-->
+        <button onclick="signInWithDiscord()" class="button-header" id="loginButton">Sign in with Discord</button>
+      </div>
+
+      <!--Feature cards on the main page.-->
+    </header>
+    <section class="features" id="features">
+      <h2>Features of PolyDiscordBot</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <h3>Music playing & Recommendations</h3>
+          <p>
+            One key feature of our bot is the ability to play your favorite music. We also aim to recommend other music to you to grow your library.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Community focused Functionalities</h3>
+          <p>
+            Our bot will be equipped to help organize, maintain and establish a well rounded community within your discord server.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>User-Friendly Interface</h3>
+          <p>
+            Poly makes it easy for users to set up and customize the bot to their needs. Roles, commands, permissions and more.
+          </p>
+        </div>
+        <div class = "feature-card">
+          <h3>Powerful Moderation Tools</h3>
+          <p>
+            Poly gives you the management tools to anaylze, filter and manage your community that line up with your servers listed rules.
+          </p>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <p>Copyright © PolyDiscordBot</p>
+          <ul>
+            <li><a href="">Terms of Service</a></li>
+            <li><a href="">The Developers</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function signInWithDiscord() {
+        // Redirect the user to Discord's authorization page
+        window.location.href = `https://discord.com/api/oauth2/authorize?client_id=1074379622025797743&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fdiscord&response_type=token&scope=identify%20guilds%20guilds.members.read`;
+      }
+    </script>
+  </body>
+</html>
+
+
+
+

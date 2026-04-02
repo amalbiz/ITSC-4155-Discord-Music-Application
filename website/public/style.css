@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #ADD8E6;
+    background-image: linear-gradient(to right, #0077c9, #bbbbbb2c);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: header-animation 5s ease-in-out infinite;
+}
+
+
+.header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to right, #bbbbbb2c, #56b9fa);
+    animation: header-animation 5s ease-in-out infinite;
+}
+
+@keyframes header-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header-info {
+    margin-right: 80px;
+    margin-left: 80px;
+    text-align: center;
+}
+
+
+.header-info h1 {
+    position: relative;
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.header-info p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.button-header {
+    display: inline-block;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    color: #0077c9;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.button-header:hover {
+    background-color: #0077c9;
+    color: #fff;
+    cursor: pointer;
+}
+
+.navbar {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.logo h3 a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    position: absolute;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: #fff;
+    margin: 0 20px;
+    font-size: large;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+}
+
+.nav-links li a:hover {
+    color: #0077c9;
+    cursor: pointer;
+}
+
+.button {
+    background-color: #fff;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    color: #0077c9;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.button:hover {
+    background-color: #0077c9;
+    color: #fff;
+    cursor: pointer;
+}
+
+.features {
+    padding: 80px 0;
+    margin-top: auto;
+    text-align: center;
+}
+
+.features h2 {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 4px;
+    transition: all 0.3s ease-in-out;
+  }
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h3 {
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.feature-card p {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    padding: 0 20px;
+    text-align: justify;
+}
+
+footer {
+    background-color: #35353527;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100em;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.footer-content ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-content li {
+    margin-left: 20px;
+}
+
+.footer-content a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*About tab styling*/
+.about-section {
+    margin-bottom: 170px;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-container h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.about-container p {
+    font-size: 20px;
+    font-weight: 450;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.about-container ul {
+    list-style: circle;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.about-container li {
+    margin-bottom: 10px;
+}
+
+/*Documentation tab styling*/
+.documentation-section {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.commands-list h3{
+    text-align: center;
+}
+
+.documentation-container {
+    max-width: 800px;
+    text-align: center;
+}
+
+.documentation-container h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.documentation-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.commands-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.commands-list li {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.commands-list code {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+/*dasboard styling*/
+
+.dashboard-section {
+    text-align: center;
+}
+
+.dashboard-container {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAAXNSR0IArs4c6QAAADdJREFUKFNjZCASMKKpk0LiP0OWQ1YIUoQsicIHKURXgGwQXA7damwuBismRiFIsxSxChmIVggAu/YGI+wjrnwAAAAASUVORK5CYII=
+    )repeat;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h1 {
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.dashboard-container .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.dashboard-container .button:hover {
+    background-color: #0056b3;
+}
+
+.dashboard-container #user-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.dashboard-container #name {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.dashboard-container #avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.dashboard-widget-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.dashboard-widget-content {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+  
+/* Style for guild list container */
+.guild-list-container {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Style for guild list unordered list */
+.guild-list-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Updated to use flex layout */
+    justify-content: center; /*Centers the servers on webpage*/
+}
+  
+  /* Style for guild list items */
+.guild-list-item {
+    margin-right: 10px; /* Add margin between list items */
+    display: inline-block; /* Display items side by side */
+    
+}
+  
+  /* Style for guild list button */
+.guild-list-button {
+    background-color: #007bff;
+    text-align: center;
+    color: #FFF;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; 
+}
+  
+  /* Hover effect for guild list button */
+.guild-list-button:hover {
+    background-color: #5b6eae;
+}
+  
+.contact-section{
+    margin-top: 350px;
+}
+
+.contact-container{
+    max-width: 800px;
+    margin: 0 auto;
+}

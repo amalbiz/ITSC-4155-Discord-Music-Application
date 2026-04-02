@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+  <link rel="stylesheet" type="text/css" href="style.css" >
+  <title>Discord Bot</title>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <!--Insert logo png here if we decide to-->
+      </div>
+      <ul class="nav-links">
+        <!--navigation placeholders for now.-->
+        <li><a href="/">Home</a></li>
+        <li><a href="/documentation">Documentation</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/invite" class="button">Invite Poly!</a>
+    </nav>
+  </header>
+  <main>
+    <section class="dashboard-section">
+      <div class="dashboard-container">
+        <h1>Welcome to Your Discord Bot Dashboard</h1>
+        <a href="/" class="button">Logout</a>
+
+        <div id="user-info"></div>
+          <img src='' id="avatar"/>
+          <h2 id="name"></h2>
+        </div>
+
+        <!--Widget-->
+        <div class="dashboard-widget">
+          <h2 class="widget-title">Current Servers</h2>
+          <p class="widget-content">Below are the current servers to which you can add Poly. Feel free to add Poly to any of them!</p>
+        </div>
+
+        <!--Discord servers the user is a part of where they can add the bot-->
+        <div id="guild-list-container" class="guild-list-container">
+          <ul id="guild-list-ul" class="guild-list-ul">
+            <!--Server list will be generated here-->
+          </ul>
+        </div>
+        
+
+    </section>
+  </main>
+  <footer>
+    <div class="footer">
+      <div class="footer-content">
+        <p>Copyright © PolyDiscordBot</p>
+        <ul>
+          <li><a href="">Terms of Service</a></li>
+          <li><a href="">The Developers</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<!--This script is the OAuth2 flow where calls to the discord API will be made to retrieve user information and the servers they are in-->
+<script>
+  window.onload = () => {
+    const fragment = new URLSearchParams(window.location.hash.slice(1));
+    const [accessToken, tokenType] = [
+      fragment.get("access_token"),
+      fragment.get("token_type")
+    ];
+  
+    if (!accessToken) {
+      window.location.href("/");
+    }
+    //API call to get user's information
+    fetch("https://discord.com/api/users/@me", {
+      headers: {
+        authorization: `${tokenType} ${accessToken}`
+      }
+    })
+      .then(result => result.json())
+      .then(response => {
+        console.log(response);
+        const { username, discriminator, avatar, id } = response;
+        // set the welcome username string
+        document.getElementById("name").innerText = ` ${username}#${discriminator}`;
+  
+        // set the avatar image by constructing a url to access discord's cdn
+        document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
+  
+        // get list of servers that the user is a part of.
+        fetch("https://discord.com/api/users/@me/guilds", {
+          headers: {
+            authorization: `${tokenType} ${accessToken}`
+          }
+        })
+          .then(result => result.json())
+          .then(guilds => {
+            //Getting list of "guilds" or servers the user is apart of and dynamically listing them
+            const guildList = document.getElementById("guild-list-ul");
+            const serverButtons = document.getElementsByClassName("guild-list-button"); // Define serverButtons variable
+  
+            guilds.forEach(guild => {
+              // This if statement will check if the user has permissions to add a bot to their discord servers.
+              if (guild.permissions & 0x00000020) { 
+                const listItem = document.createElement("li");
+                listItem.classList.add("guild-list-item");
+                
+                const button = document.createElement("button");
+                button.classList.add("guild-list-button");
+                button.innerText = guild.name;
+                button.dataset.guildId = guild.id; // store the guild ID in the dataset
+              
+                button.addEventListener("click", (event) => {
+                  const guildId = event.target.dataset.guildId;
+                  const inviteUrl = `https://discord.com/oauth2/authorize?client_id=1074379622025797743&scope=bot&permissions=0&guild_id=${guildId}&response_type=code&redirect_uri=http://localhost:3000`;
+                  window.location.href = inviteUrl;
+                });
+              
+                listItem.appendChild(button);
+                guildList.appendChild(listItem);
+              }
+            });
+          })
+          .catch(console.error);
+      })
+      .catch(console.error);
+  };  
+</script>
+
